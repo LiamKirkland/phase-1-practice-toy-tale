@@ -43,10 +43,12 @@ function getToys() {
       const cardImg = newEle('img')
       const cardLkes = newEle('p')
       const cardBtn = newEle('button')
+      const delBtn = newEle('button')
 
       toyCard.classList.add('card')
       cardImg.classList.add('toy-avatar')
       cardBtn.classList.add('like-btn')
+      delBtn.classList.add('del-btn')
 
       cardName.textContent = toy.name
       cardImg.src = toy.image
@@ -56,8 +58,18 @@ function getToys() {
       cardBtn.addEventListener('click', e => {
         likeToy(e.target)
       })
+      delBtn.id = toy.id
+      delBtn.textContent = 'X'
+      delBtn.addEventListener('click', e => {
+        if(confirm("Are you sure you want to delete this toy?")) {
+          console.log('Yes!')
+          deleteToy(e.target)
+        } else {
+          console.log('No!')
+        }
+      })
 
-      toyCard.append(cardName, cardImg, cardLkes, cardBtn)
+      toyCard.append(delBtn, cardName, cardImg, cardLkes, cardBtn)
       cardArr.push(toyCard)
     }
     toyCollection.replaceChildren(...cardArr)
@@ -90,6 +102,18 @@ function likeToy(likeBtn) {
     body: JSON.stringify({
       "likes": (currLikes + 1)
     })
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+    getToys()
+  })
+}
+
+function deleteToy(delBtn) {
+fetch(baseUrl + delBtn.id, {
+    method: "DELETE",
+    headers: { 'Content-Type': 'application/json' }
   })
   .then(res => res.json())
   .then(data => {
