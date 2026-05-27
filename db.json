@@ -22,7 +22,7 @@
       "id": 4,
       "name": "Slinky Dog",
       "image": "https://www.freeiconspng.com/uploads/slinky-png-transparent-1.png",
-      "likes": 4
+      "likes": 6
     },
     {
       "id": 5,
@@ -51,13 +51,13 @@
     {
       "name": "Bullseye",
       "image": "https://static.wikia.nocookie.net/pixar/images/7/72/Bullseye.png/revision/latest?cb=20210203004509",
-      "likes": 0,
+      "likes": 6,
       "id": 10
     },
     {
       "name": "Jessie",
       "image": "https://static.wikia.nocookie.net/toy-story-fanom/images/8/88/Jessie_Toy_Story_3.png/revision/latest/thumbnail/width/360/height/450?cb=20201123124733",
-      "likes": 0,
+      "likes": 3,
       "id": 11
     }
   ]
